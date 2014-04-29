@@ -85,7 +85,14 @@
 						</div>
 					</div>
 					<div class=\"details\">
-						<strong>{$row['name']}</strong>
+					
+						<form action=\"parlour.php\" method=\"GET\">
+							<input name=\"parlour_id\" type=\"hidden\" value=\"{$row['profile_id']}\" />
+							<strong class=\"parlour_name\">{$row['name']}</strong>
+						</form>
+						
+						
+						
 						<br>{$row['block_number']}, {$row['areaname']}
 						<br>{$row['land_line']}
 						<br>
@@ -109,5 +116,10 @@
 	}
 	
 ?>
-</ul>		
-
+</ul>	
+<script type="text/javascript" src="view/js/jquery.js"></script>	
+<script>
+	$('.parlour_name').on('click',function(){
+		$(this).parent().submit();
+	});
+</script>

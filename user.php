@@ -1,15 +1,21 @@
 <?php include "view/template/overall/header.php";?>
 
 <?php
-	$contact_no = getUserContact($session_id);
-	$location = getUserLocation($session_id);
-	$email = getUserEmail($session_id);
-	$profile_pic = getProfilePicUrl($session_id);
+	if(!isset($_SESSION['user_id'])){
+		header('Location: index.php');
+		exit();
+	}
+	else{
+		$contact_no = getUserContact($session_id);
+		$location = getUserLocation($session_id);
+		$email = getUserEmail($session_id);
+		$profile_pic = getProfilePicUrl($session_id);
+	}
 ?>
 
 <div id="usersection_body">
 	<div id="userdetails_section">
-		<div id="user_image" style="background-image:url('view/image/profile_pic/<?php echo $profile_pic?>');background-size:auto 100%;width:100%;height:150px;">
+		<div id="user_image" style="background-image:url('view/image/profile_pic/<?php echo $profile_pic?>');background-size:100%;width:100%;height:150px;border-radius:4px 4px 0px 0px;">
 			<div id="nothing"></div>
 			<div id="change_photo">
 			<input type="file" value="change photo"/>

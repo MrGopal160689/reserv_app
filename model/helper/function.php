@@ -114,5 +114,25 @@
 	function getRatePercent($rating){
 		return ($rating/5)*100;
 	}
+	function getParlourDetails($id){
+		$query = "select parlour.name, concat(parlour.block_number,', ',area.name,', ',city.name,'-',parlour.zip_code) as address, land_line as contact, concat(start_hour,'am to ',end_hour,'pm') as timing, rate_average as rate, parlour.logo_url from parlor as parlour inner join ref_area as area on parlour.area_id = area.area_id inner join ref_city as city on area.city_id = city.city_id inner join (select p.parlor_id, avg(r.points) as rate_average from ref_parlor_rating as p inner join ref_rating as r on p.rate_id = r.id group by p.parlor_id ) as rate_chart on parlour.profile_id = rate_chart.parlor_id where parlour.profile_id = {$id} limit 1";
+		
+		return mysql_fetch_array(mysql_query($query));
+	}
+	function getServiceList($id){
+		$query = "select if(count(psl.service_id) > 1, 'p', 's') as type, ps.parlor_package_name as service_name, ps.rate as price, ps.approx_time as time from parlor_service as ps inner join parlor_service_link as psl on ps.package_id = psl.package_id where ps.parlor_id = {$id} group by psl.package_id";
+		
+		return mysql_query($query);
+	}
+	function getExpertList($id){
+		$query = "select name, image, designation, description from expert where parlour_id = {$id}";
+		
+		return mysql_query($query);
+	}
+	function getGalleryImageList($id){
+		$query = "select filename from gallery where parlour_id = {$id}";
+		
+		return mysql_query($query);
+	}
 ?>
 
