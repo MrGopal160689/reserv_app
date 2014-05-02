@@ -49,5 +49,4 @@
 		</li>
 	</ul>
 </form>
-<script type="text/javascript" src="view/js/jquery.js"></script>
 <script type="text/javascript" src="view/js/search-parlor.js"></script>

@@ -116,10 +116,11 @@
 	}
 	
 ?>
-</ul>	
-<script type="text/javascript" src="view/js/jquery.js"></script>	
+</ul>		
 <script>
-	$('.parlour_name').on('click',function(){
-		$(this).parent().submit();
+	document.addEventListener('click',function(e){
+		if (e.target.className.toLowerCase() == 'parlour_name') {
+			e.target.parentNode.submit();
+		}
 	});
 </script>
