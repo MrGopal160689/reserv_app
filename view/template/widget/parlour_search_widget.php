@@ -11,7 +11,7 @@
 		</li>
 		<li class="input_field">
 			<input type="hidden" id="area_id" name="area_id" value=""/>
-			<input type="text" class="search-input" id="area_search_field" placeholder="Enter your area" autocomplete="off"/>
+			<input type="search" class="search-input" id="area_search_field" placeholder="Enter your area" autocomplete="off"/>
 				<div id="city_suggestion_box" class="city_suggestion_box_hidden">
 					<ul id="city_suggestion_list">
 
@@ -27,7 +27,7 @@
 		</li>
 		<li class="input_field">
 			<input type="hidden" id="service_id" name="service_id" value=""/>
-			<input type="text" class="search-input" id="service_search_field" placeholder="Enter service" autocomplete="off"/>
+			<input type="search" class="search-input" id="service_search_field" placeholder="Enter service" autocomplete="off"/>
 			<input type="submit" value="GO"/>
 				<div id="service_suggestion_box" class="service_suggestion_box_hidden">
 					<ul id="service_suggestion_list">

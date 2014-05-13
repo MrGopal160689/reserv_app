@@ -134,5 +134,10 @@
 		
 		return mysql_query($query);
 	}
+	function getHighlightList(){
+		$query = "select p.profile_id as id, p.name, concat(p.block_number,', ',a.name,', ',c.name,'-',p.zip_code) as address, p.land_line as contact, g.filename as file, g.description from highlight as h inner join gallery as g on h.link = g.id inner join parlor as p on g.parlour_id = p.profile_id inner join ref_area as a on p.area_id = a.area_id inner join ref_city as c on a.city_id = c.city_id";
+		
+		return mysql_query($query);
+	}
 ?>
 

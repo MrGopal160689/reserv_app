@@ -99,7 +99,7 @@
 						
 						<br>Monday to Sunday
 						<div class=\"parlour_logo_thumbnail\">
-							<img src=\"view/image/parlour_logo/1.jpg\" alt=\"\"/>
+							<img src=\"view/image/parlour_pic/default.jpg\" alt=\"\"/>
 						</div>
 						{$row['parlor_package_name']}
 						<br>".(float)$row['approx_time']." mins.

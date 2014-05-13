@@ -1,389 +1,5 @@
 <?php include "view/template/overall/header.php";?>
-
-<style>
-	.profile-body{
-		padding:80px 0px 0px 20px;
-	}
-	.float-left{
-		float:left;
-	}
-	.left-section,.right-section{
-		background-color:#fff;
-		height:550px;
-		margin:0px 15px;
-		box-shadow:0px 0px 2px rgba(0,0,0,0.5);
-		border-radius:2px;
-	}
-	.left-section,.profile-pic-dynamic{
-		width:200px;
-	}
-	.right-section{
-		width:1050px;
-	}
-	.profile-pic-dynamic{
-		height:150px;
-		border-radius:2px 2px 0px 0px;
-	}
-	.parlour-pic-image{
-		background-image:url('view/image/parlour_pic/default.jpg');
-		background-size:100%;
-	}
-	.question-highlight,.left-wrapper{
-		height:100%;
-	}
-	.question-highlight{
-		width:180px;
-		border-radius:0px 2px 2px 0px;
-		background-color:#ec1a3b;
-		color:#fff;
-	}
-	.left-wrapper{
-		width:870px;
-	}
-	.navigation{
-		width:100%;
-	}
-	.navigation{
-		padding:10px 5px;
-		height:20px;
-		font-size:14px;
-	}
-	.nav-page{
-		padding:10px 20px;
-	}
-	.navigation li{
-		padding:0px 15px;
-		cursor:pointer;
-	}
-	.selected{
-		color:#ec1a3b;
-		border-bottom:1px solid #ec1a3b;
-	}
-	#search-box{
-		width:350px;
-		height:32px;
-		padding:0px 10px;
-		text-align:right;
-		border:0px;
-		background-color:#c1c1c1;
-		background-image:url('view/image/search_icon.png');
-		background-repeat:no-repeat;
-		background-position:2% 50%;
-		color:#fff;
-	}
-	.price-list{
-		padding:20px 0px;
-	}
-	.price-list li{
-		line-height:30px;
-		height:30px;
-		clear:both;
-		border:1px solid #fff;
-	}
-	.price-list li:hover{
-		color:#ec1a3b;
-	}
-	.package{
-		background-color:#feffcc;
-	}
-	.single{
-		background-color:#f2f2f2;
-	}
-	.list-item{
-	}
-	.icon{
-		padding:5px;
-	}
-	.name{
-		width:420px;
-		height:100%;
-	}
-	.time{
-		width:200px;
-		height:100%;
-	}
-	.price{
-		width:125px;
-		height:100%;
-	}
-	.book-btn{
-		width:100%;
-		height:100%;
-		background-color:#ec1a3b;
-		border:0px;
-		color:#fff;
-	}
-	.profile-detail{
-		width:100%;
-		height:200px;
-	}
-	.personal-detail{
-		font-size:12px;
-		width:150px;
-	}
-	.parlour-name{
-		font-size:18px;
-		color:#ec1a3b;
-	}
-	.clear-float{
-		clear:both;
-	}
-	.detail-icon{
-		width:20px;
-		height:20px;
-		padding:1px;
-	}
-	.sub-detail{
-		padding-top:5px;
-	}
-	
-	
-	
-/***************  rating  ***********************/
-	.rating-wrapper{
-		width:120px;
-		margin:0px auto;
-	}
-	.x,.x-wrapper-left,.x-wrapper-right{
-		position:absolute;
-		width:120px;
-		height:120px;
-		border-radius:60px;
-	}
-	.hole{
-		position:absolute;
-		width:100px;
-		height:100px;
-		border-radius:50px;
-		background-color:#fff;
-		margin-top:10;
-		margin-left:10;
-		color:#ec1a3b;
-		font-size:32px;
-		text-align:center;
-		line-height:100px;
-	}
-	.x{
-		background-color:#ec1a3b;
-	}
-	.x-wrapper-right{
-		background-color:#FFADAD;
-		clip:rect(0px,120px,120px,60px);
-	}
-	.x-wrapper-left{
-		background-color:#FFADAD;
-		clip:rect(0px,60px,120px,0px);
-	}
-	.right{
-		clip:rect(0px,60px,120px,0px);
-	}
-	.left{
-		clip:rect(0px,120px,120px,60px);
-	}
-	.r-value-0{
-		transition:transform 0.5s;
-		transform:rotate(0deg);
-		-webkit-transform:rotate(0deg);
-	}
-	.r-value-10{
-		transition:transform 0.5s;
-		transform:rotate(36deg);
-	-webkit-transform:rotate(36deg);
-	}
-	.r-value-20{
-		transition:transform 0.5s;
-		transform:rotate(72deg);
-		-webkit-transform:rotate(72deg);
-	}
-	.r-value-30{
-		transition:transform 0.5s;
-		transform:rotate(108deg);
-		-webkit-transform:rotate(108deg);
-	}
-	.r-value-40{
-		transition:transform 0.5s;
-		transform:rotate(144deg);
-		-webkit-transform:rotate(144deg);
-	}
-	.r-value-50{
-		transition:transform 0.5s;
-		transform:rotate(180deg);
-		-webkit-transform:rotate(180deg);
-	}
-	.l-value-0{
-		transition:transform 0.5s;
-		transform:rotate(0deg);
-		-webkit-transform:rotate(0deg);
-	}
-	.l-value-10{
-		transition:transform 0.5s;
-		transform:rotate(36deg);
-		-webkit-transform:rotate(36deg);
-	}
-	.l-value-20{
-		transition:transform 0.5s;
-		transform:rotate(72deg);
-		-webkit-transform:rotate(72deg);
-	}
-	.l-value-30{
-		transition:transform 0.5s;
-		transform:rotate(108deg);
-		-webkit-transform:rotate(108deg);
-	}
-	.l-value-40{
-		transition:transform 0.5s;
-		transform:rotate(144deg);
-		-webkit-transform:rotate(144deg);
-	}
-	.l-value-50{
-		transition:transform 0.5s;
-		transform:rotate(180deg);
-		-webkit-transform:rotate(180deg);
-	}
-	
-	
-	
-	.hidden{
-		display:none;
-	}
-	
-	.expert-item{
-		padding:15px 5px;
-	}
-	.expert-detail{
-		width:150px;
-		padding:0px 10px;
-	}
-	.expert-experience{
-		font-size:12px;
-	}
-	.expert-image{
-		width:80px;
-		height:100px;
-		background-color:#ccc;
-	}
-	#expert-page{
-		height:450px;
-		overflow-y:scroll;
-	}
-	.question{
-		padding:20px 0px 0px 0px;
-		margin:0px;
-	}
-	.question li{
-		padding:0px;
-		width:100%;
-		height:80px;
-		background-color:#E2E2E2;
-		margin:5px 0px;
-	}
-	.user-thumbnail{
-		height:100%;
-		width:9%;
-		background-color:#ccc;
-	}
-	.question-right-section{
-		width:76%;
-		height:100%;
-	}
-	.question-metadata{
-		width:14%;
-		height:99%;
-		padding-top:1%;
-		padding-left:1%;
-	}
-	.divide-fifty{
-		width:99%;
-		height:49%;
-		padding-top:1%;
-		padding-left:1%;
-	}
-	.reply-number{
-		width:20px;
-		height:20px;
-		border-radius:10px;
-		background-color:#ec1a3b;
-		color:#fff;
-		font-size:12px;
-		text-align:center;
-		line-height:20px;
-	}
-	.time-stamp{
-		font-size:14px;
-		color:#666666;
-	}
-	.question-input{
-		background-color:#F2F2F2;
-		max-width:830px;
-		min-width:830px;
-		border:0px;
-		margin-top:10px;
-		padding:5px;
-		
-	}
-	.question-body{
-		min-height:60px;
-	}
-	.question-title{
-		height:30px;
-		resize:none;
-	}
-	.ask-btn-wrapper{
-		width:100%;
-		text-align:right;
-	}
-	.ask-btn{
-		margin-top:-45px;
-		border:none;
-		width:60px;
-		padding:5px;
-		background-color:#ec1a3b;
-		color:#fff;
-	}
-	.btn{
-		margin-top:10px;
-		border:none;
-		padding:5px;
-		background-color:#ec1a3b;
-		color:#fff;
-	}
-	#hide-btn{
-		background-color:#A3A3A3;
-	}
-	
-	#search-box::-webkit-input-placeholder {
-	   color: #FFF;
-	}
-	.gallery_thumbnail_list{
-		padding:0px;
-		margin:0px;
-		width:820px;
-		overflow-x:scroll;
-	}
-	
-	.gallery_thumbnail_list li{
-		display:table-cell;
-		padding:0px 5px;
-		opacity:0.5;
-	}
-	.gallery_thumbnail_list li:hover{
-		opacity:1;
-	}
-	
-	.gallery_thumbnail_list li img{
-		height:100px;
-	}
-	
-	.gallery-main{
-		width:800px;
-		height:330px;
-		padding:10px;
-	}
-	.gallery-main img{
-		height:300px;
-	}
-</style>
-
+<link rel="stylesheet" href="view/css/style_parlour.css" type="text/css"/>
 <?php
 	if(isset($_GET['parlour_id'])){
 	$id = $_GET['parlour_id'];
@@ -459,7 +75,7 @@
 
 	<div class="right-section float-left">
 		<div class="float-left left-wrapper">
-			<ul class="navigation">
+			<ul id="navigation">
 				<li class="float-left"><span class="selected">Price list</span></li>
 				<li class="float-left"><span class="">Experts</span></li>
 				<li class="float-left"><span class="">Gallery</span></li>
@@ -469,7 +85,9 @@
 			</ul>
 			<div id="pages">
 			<div class="nav-page" id="price-list-page">
-				<input id="search-box" type="text" placeholder="search service"/>
+				<input id="search-box" class="float-left" type="text" placeholder="search service"/>
+				<div id="indicator" class="float-left"><img src="view/image/single_icon.png"/>&nbsp;single service&nbsp;&nbsp;<img src="view/image/package_icon.png"/>&nbsp;package</div>
+				<div class="clear-float"></div>
 				<ul class="price-list">
 					<?php
 						
@@ -523,7 +141,7 @@
 						<img id="gallery-main-image" src=""/>
 				</div>
 				<div>
-					<ul class="gallery_thumbnail_list">
+					<ul id="gallery_thumbnail_list">
 					<?php
 						
 						while($item = mysql_fetch_array($gallery_list)){
@@ -541,7 +159,7 @@
 			</div>
 			<div class="hidden" id="advice-page">
 				<div class="ask-btn-wrapper">
-				<button class="ask-btn">ASK</button>
+				<button id="ask-btn">ASK</button>
 				</div>
 				<div id="question-section" class="hidden">
 					<textarea class="question-input question-title" wrap="off" cols="50" rows="1" placeholder="Type your question title.."></textarea>
@@ -577,19 +195,18 @@
 				</ul>
 			</div>
 			</div>
-		</div>
-		
+		</div>	
 		<div class="float-left question-highlight">
-			<div>Ask for advice ?</div>
-			<div>24 questions</div>
-			<div>14 replies</div>
-			<div>Recent Questions</div>
+			<div class="rt-advise-section"><strong>Ask for advice ?</strong></div>
+			<div class="advise-panel-padding"><div class="reply-number float-left color">24</div> &nbsp;&nbsp;questions</div>
+			<div class="advise-panel-padding"><div class="reply-number float-left color">14</div> &nbsp;&nbsp;replies</div>
+			<div class="rt-advise-section"><strong>Recent Questions</strong></div>
 			<ul>
 				<?php
 					$count = 0 ;
 						while($count<4){
 				?>
-				<li>How do I get rid of my acne ?<br> 9 replies</li>
+				<li class="question-list"><i>How do I get rid of my acne ?</i><br><div class="reply-number float-left color">9</div> &nbsp;&nbsp;replies</li>
 				<?php
 						$count++;
 						}
@@ -598,46 +215,4 @@
 		</div>
 	</div>
 </div>
-<script type="text/javascript" src="view/js/jquery.js"></script>
-<script>
-	$('.ask-btn').on('click',function(){
-		$('#question-section').attr('class','');
-	});
-	$('#hide-btn').on('click',function(){
-		$('#question-section').attr('class','hidden');
-	});
-	
-	$('.navigation li').on('click',function(){
-		var selected = $(this).index();
-		//highlight selected link
-		$(this).children().eq(0).attr('class','selected');
-		$('.navigation').children('li').each(function(){
-			if($(this).index() != selected){
-				$(this).children().eq(0).attr('class','');
-			}
-		});
-		//highlight selected page
-		$('#pages').children().eq(selected).attr('class','nav-page');
-		$('#pages').children('div').each(function(){
-			if($(this).index() != selected){
-				$(this).attr('class','hidden');
-			}
-		});
-	});
-	$('.gallery_thumbnail_list li').on('click',function(){
-		var selected_img = $(this).children().eq(0).attr('src');
-		// var selected_img_index = $(this).index();
-		// $(this).children().eq(0).attr('id','image-selected');
-		// $('.gallery_thumbnail_list').children('li').each(function(){
-			// if($(this).index()!=selected_img_index){
-				// $(this).children().eq(0).attr('id','');
-			// }
-		// });
-		$('#gallery-main-image').attr('src',selected_img);
-	});
-	$(document).ready(function(){
-		var selected_img = $('.gallery_thumbnail_list').children().eq(0).children().eq(0).attr('src');
-		$('#gallery-main-image').attr('src',selected_img);
-	});
-</script>
-
+<script type="text/javascript" src="view/js/parlour.js"></script>

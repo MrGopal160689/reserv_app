@@ -4,7 +4,7 @@
 	$service = $_POST['service'];
 	if(!empty($service)){
 	
-		$service_search_query="select service.service_id, service.name from service_list as service where service.name like '%{$service}%'";
+		$service_search_query="select service.service_id, service.name from service_list as service where service.name like '%{$service}%' limit 5";
 		
 		$result=mysql_query($service_search_query,$connection);
 		
