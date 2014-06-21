@@ -1,5 +1,5 @@
 document.getElementById('ask-btn').addEventListener('click',function(e){
-	document.getElementById('question-section').setAttribute('class','');
+	document.getElementById('question-section').classList.toggle('hidden');
 });
 document.getElementById('hide-btn').addEventListener('click',function(e){
 	document.getElementById('question-section').setAttribute('class','hidden');

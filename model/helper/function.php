@@ -139,5 +139,10 @@
 		
 		return mysql_query($query);
 	}
+	function getQuestionList($id){
+		$query = "select id, title, username, date_format(post_time,'%D %b %Y') as postdate, time_format(post_time,'%h:%i %p') as posttime from question where parlour_id={$id}";
+		
+		return mysql_query($query);
+	}	
 ?>
 

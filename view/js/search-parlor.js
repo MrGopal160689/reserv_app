@@ -1,30 +1,30 @@
-document.getElementById('area_search_field').onkeyup = function(e){
+document.getElementById('input_select_location').onkeyup = function(e){
 	var value = this.value.replace(/(^\s+|\s+$)/g,'');
 	if(value.length){
 		document.getElementById('city_suggestion_box').className="city_suggestion_box";
 		// alert(value);
 		
-		var xmlhttp;
-		if (window.XMLHttpRequest)
-		{
-			// code for IE7+, Firefox, Chrome, Opera, Safari
-			xmlhttp=new XMLHttpRequest();
-		}
-		else
-		{
-			// code for IE6, IE5
-			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-		}
-		xmlhttp.onreadystatechange=function()
-		{
-			if (xmlhttp.readyState==4 && xmlhttp.status==200)
+			var xmlhttp;
+			if (window.XMLHttpRequest)
 			{
-				document.getElementById("city_suggestion_list").innerHTML=xmlhttp.responseText;
+				// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp=new XMLHttpRequest();
 			}
-		}
-		xmlhttp.open("POST","model/helper/search_area.php",true);
-		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-		xmlhttp.send("area="+value);
+			else
+			{
+				// code for IE6, IE5
+				xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xmlhttp.onreadystatechange=function()
+			{
+				if (xmlhttp.readyState==4 && xmlhttp.status==200)
+				{
+					document.getElementById("city_suggestion_list").innerHTML=xmlhttp.responseText;
+				}
+			}
+			xmlhttp.open("POST","model/helper/search_area.php",true);
+			xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			xmlhttp.send("area="+value);
 		
 	}
 	else{
@@ -32,7 +32,7 @@ document.getElementById('area_search_field').onkeyup = function(e){
 	}
 };
 
-document.getElementById('area_search_field').addEventListener("blur",function(e){
+document.getElementById('input_select_location').addEventListener("blur",function(e){
 	document.getElementById('city_suggestion_box').className="city_suggestion_box_hidden";
 });
 
@@ -42,11 +42,11 @@ document.getElementById('city_suggestion_list').addEventListener("mouseover",fun
 		var value = e.target.childNodes[1].textContent;
 		var areaname = value.substr(0,value.indexOf(','));
 		document.getElementById('area_id').setAttribute('value',id);
-		document.getElementById('area_search_field').value = areaname;
+		document.getElementById('input_select_location').value = areaname;
 	}
 });
 
-document.getElementById('service_search_field').onkeyup = function(e){
+document.getElementById('input_select_service').onkeyup = function(e){
 	var value = this.value.replace(/(^\s+|\s+$)/g,'');
 	if(value.length){
 		document.getElementById('service_suggestion_box').className="service_suggestion_box";
@@ -80,7 +80,7 @@ document.getElementById('service_search_field').onkeyup = function(e){
 	}
 };
 
-document.getElementById('service_search_field').addEventListener("blur",function(e){
+document.getElementById('input_select_service').addEventListener("blur",function(e){
 	document.getElementById('service_suggestion_box').className="service_suggestion_box_hidden";
 });
 
@@ -89,7 +89,7 @@ document.getElementById('service_suggestion_list').addEventListener("mouseover",
 		var id = e.target.childNodes[0].value;
 		var servicename = e.target.childNodes[1].textContent;
 		document.getElementById('service_id').setAttribute('value',id);
-		document.getElementById('service_search_field').value = servicename;
+		document.getElementById('input_select_service').value = servicename;
 	}
 });
 /*

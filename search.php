@@ -18,12 +18,12 @@
 ?>
 <div id="search_metadata_wrapper">
 	<div id="search_metadata">
-<?php
-		
-		echo "Searched for <strong>{$service_name}</strong> in/near <strong>{$area_name}</strong>.";
-		echo " {$result_count} result{$suffix} found...";
-		
-?>
+		<?php
+			
+			echo "Searched for <strong>{$service_name}</strong> in/near <strong>{$area_name}</strong>.";
+			echo " {$result_count} result{$suffix} found...";
+			
+		?>
 	</div>
 </div>
 <ul id="search_wrapper">
@@ -36,6 +36,7 @@
 			$rval = "";
 			$lval = "";
 			/*
+			
 			1. Get the rating, calculated average from the database show on the header
 			2. Calculate the percentage from the rating obtained
 			3. Rating table and percentage

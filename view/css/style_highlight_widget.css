@@ -68,18 +68,9 @@
 	width:100px;
 	height:35px;
 }
-#cta_list{
-	padding:0px;
-	margin:0px;
-}
-#cta_list li{
-	float:left;
-	padding:10px 25px;
-	height:180px;
-}
-#cta_list li:not(:last-child){
-	border-right:1px solid rgba(140,140,140,0.5);
-}
+#cta_list{ padding: 0px; margin: 0px; }
+#cta_list li{ float:left; padding:10px 25px; height:180px; list-style: none;}
+#cta_list li:not(:last-child){ border-right:1px solid rgba(140,140,140,0.5); }
 #txt_area{
 	margin-top:5px;
 	min-width:380px;
